@@ -4,20 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:erp_system"
+        xmlns:viewModel="clr-namespace:erp_system.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     <Grid>
         <StackPanel>
-            <TabControl Height="100" VerticalAlignment="Top">
-                <TabItem Header="TabItem">
-                    <Grid Background="#FFE5E5E5"/>
-                </TabItem>
-                <TabItem Header="TabItem">
-                    <Grid Background="#FFE5E5E5"/>
-                </TabItem>
-            </TabControl>
-            <Button Content="Button" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom"/>
+            <ContentControl Content="{Binding CurrentView}"/>
         </StackPanel>
-
     </Grid>
 </Window>
