@@ -1,10 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace erp_system.Repo
 {
@@ -35,6 +32,5 @@ namespace erp_system.Repo
                 return _details;
             }
         }
-
     }
 }
