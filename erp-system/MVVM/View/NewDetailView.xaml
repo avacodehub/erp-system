@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+         </Grid.ColumnDefinitions>
+
+        <Grid Background="Azure">
+        </Grid>
+
+
         <TextBlock Text="{Binding Count}" />
+        
     </Grid>
 </UserControl>
