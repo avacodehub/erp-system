@@ -11,8 +11,19 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="80" />
+            <RowDefinition Height="600" />
+        </Grid.RowDefinitions>
+
+
+        <StackPanel >
+            <Button Content="Id. number"  VerticalAlignment="Stretch" Width="100" Height="50" Background="#FF41E81D" HorizontalAlignment="Left"/>
+            <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100" Height="50" Background="#FFD7E219" Content="Search">
+            </Button>
+        </StackPanel>
         <StackPanel>
-            <ContentControl Content="{Binding CurrentView}"/>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
         </StackPanel>
     </Grid>
 </Window>

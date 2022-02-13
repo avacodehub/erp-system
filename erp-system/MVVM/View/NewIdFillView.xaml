@@ -16,15 +16,21 @@
                 </StackPanel>
                 <StackPanel>
 
-                    <TextBlock Text="Description" Width="200"/>
+                    <TextBlock Text="Drawing number" Width="200"/>
                     <TextBox Text="{Binding}" />
                 </StackPanel>
+                <StackPanel>
+
+                    <TextBlock Text="Drawing Index" Width="200"/>
+                    <TextBox Text="{Binding}" />
+                </StackPanel>
+
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0 25" >
                 <StackPanel>
 
-                    <TextBlock Text="Description" Width="200"/>
+                    <TextBlock Text="Drawing Index" Width="200"/>
                     <TextBox Text="{Binding}" />
                 </StackPanel>
 
