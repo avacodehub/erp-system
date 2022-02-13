@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using erp_system.Model;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -13,8 +14,8 @@ namespace erp_system.Repo
 
         //public static MongoClient Client { get; set; }
 
-        public static IMongoCollection<BsonDocument> _details;
-        public static IMongoCollection<BsonDocument> Details
+        public static IMongoCollection<Detail> _details;
+        public static IMongoCollection<Detail> Details
         {
             get
             {
@@ -27,7 +28,7 @@ namespace erp_system.Repo
                         ClientCertificates = new List<X509Certificate>() { cert }
                     };
                     var client = new MongoClient(settings);
-                    _details = client.GetDatabase("erp").GetCollection<BsonDocument>("details");
+                    _details = client.GetDatabase("erp").GetCollection<Detail>("details");
                 }
                 return _details;
             }
