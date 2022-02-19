@@ -10,6 +10,16 @@
             <DataTemplate DataType="{x:Type viewModel:NewDetailViewModel}">
                 <view:NewDetailView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FilterViewModel}">
+                <view:FilterView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NewDetailIdViewModel}">
+                <view:NewIdView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:NewDetailRestViewModel}">
+                <view:NewDetailRestView />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

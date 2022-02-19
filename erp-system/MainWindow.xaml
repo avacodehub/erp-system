@@ -12,18 +12,16 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions >
-            <RowDefinition Height="80" />
-            <RowDefinition Height="600" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="800" />
         </Grid.RowDefinitions>
 
 
-        <StackPanel >
-            <Button Content="Id. number"  VerticalAlignment="Stretch" Width="100" Height="50" Background="#FF41E81D" HorizontalAlignment="Left"/>
-            <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100" Height="50" Background="#FFD7E219" Content="Search">
+        <StackPanel Orientation="Horizontal" >
+            <Button Content="Id Number"  Width="100" Height="50" Background="#FF41E81D" Command="{Binding NewDetailCommand}" />
+            <Button Grid.Column="1" Width="100" Height="50" Background="#FFD7E219" Content="Search" Command="{Binding FilterCommand}">
             </Button>
         </StackPanel>
-        <StackPanel>
-            <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
-        </StackPanel>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
     </Grid>
 </Window>
