@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace erp_system.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for FilterView.xaml
+    /// Interaction logic for NewDetailRestView.xaml
     /// </summary>
-    public partial class FilterView : UserControl
+    public partial class NewDetailRestView : UserControl
     {
-        public FilterView()
+        public NewDetailRestView()
         {
             InitializeComponent();
         }

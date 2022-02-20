@@ -1,20 +1,41 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using erp_system.Repo;
+using erp_system.Tools;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
+using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace erp_system.MVVM.ViewModel
 {
     public class NewDetailViewModel : ObservableObject
     {
-        private long _count;
+        public RelayCommand ConfirmIdCommand { get; set; }
 
-        public long Count
+        public NewDetailIdViewModel NewDetailIdVM { get; set; }
+        public NewDetailRestViewModel NewDetailRestVM { get; set; }
+
+        private object _currentView;
+
+        public object CurrentView
         {
-            get => _count;
-            set => SetProperty(ref _count, value);
+            get => _currentView;
+            set => SetProperty(ref _currentView, value);
         }
 
         public NewDetailViewModel()
         {
-            Count = Repo.ErpRepo.Details.CountDocuments("{}");
+            NewDetailRestVM = new NewDetailRestViewModel();
+
+            ConfirmIdCommand = new RelayCommand(() =>
+            {
+                CurrentView = NewDetailRestVM;
+            });
+
+            NewDetailIdVM = new NewDetailIdViewModel(ConfirmIdCommand);
+
+            CurrentView = NewDetailIdVM;
+            
         }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace erp_system.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for FilterView.xaml
+    /// Interaction logic for NewIdView.xaml
     /// </summary>
-    public partial class FilterView : UserControl
+    public partial class NewIdView : UserControl
     {
-        public FilterView()
+        public NewIdView()
         {
             InitializeComponent();
         }
