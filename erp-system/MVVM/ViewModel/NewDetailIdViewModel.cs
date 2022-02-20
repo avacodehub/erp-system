@@ -16,23 +16,24 @@ namespace erp_system.MVVM.ViewModel
         public RelayCommand ConfirmIdCommand { get; set; }
 
         private int _number;
-        public int Number
+        public string Number
         {
-            get => _number;
-            set => SetProperty(ref _number, value);
+            get => String.Format("{0:00000000}",
+                              _number);
+            set => SetProperty(ref _number, Int32.Parse(value));
         }
 
-        private long _drawingNumber;
+        private string _drawingNumber;
 
-        public long DrawingNumber
+        public string DrawingNumber
         {
             get => _drawingNumber;
             set => SetProperty(ref _drawingNumber, value);
         }
 
-        private long _description;
+        private string _description;
 
-        public long Description
+        public string Description
         {
             get => _description;
             set => SetProperty(ref _description, value);
@@ -44,7 +45,7 @@ namespace erp_system.MVVM.ViewModel
             List<int> existing = ErpRepo.Details.Find(x => x.Number >= 0).ToList().Select(z => z.Number).ToList();
 
             var _generator = new IdGenerator();
-            Number = _generator.CreateId(existing);
+            Number = _generator.CreateId(existing).ToString();
 
             ConfirmIdCommand = confirmIdCommand;
 
