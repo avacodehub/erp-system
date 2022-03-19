@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace erp_system.Tools
 {
-    public class IdGenerator
+    public static class IdGenerator
     {
 
-        public int CreateId(List<int> existing)
+        public static int CreateId(List<int> existing)
         {
             int result = Enumerable.Range(1, existing.Count + 1).First(x => !existing.Contains(x));
             return result;
