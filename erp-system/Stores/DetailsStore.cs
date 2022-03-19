@@ -1,20 +1,17 @@
-﻿using erp_system.Model;
-using MongoDB.Bson;
+﻿using erp_system.MVVM.Model;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
-namespace erp_system.Repo
+namespace erp_system.Stores
 {
-    public static class ErpRepo
+    public static class DetailsStore
     {
         static string _connectionString = "mongodb+srv://cluster0.0rdkc.mongodb.net/myFirstDatabase?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority";
 
         static string _certPath = "C:\\X509cert.pfx";
 
-        //public static MongoClient Client { get; set; }
-
-        public static IMongoCollection<Detail> _details;
+        private static IMongoCollection<Detail> _details;
         public static IMongoCollection<Detail> Details
         {
             get
@@ -33,5 +30,12 @@ namespace erp_system.Repo
                 return _details;
             }
         }
+
+        public static Detail CreateDetail(Detail detail)
+        {
+            Details.InsertOne(detail);
+            return detail;
+        }
+
     }
 }

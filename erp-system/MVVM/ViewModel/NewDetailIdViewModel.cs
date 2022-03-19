@@ -1,4 +1,5 @@
-﻿using erp_system.Repo;
+﻿using erp_system.MVVM.Model;
+using erp_system.Stores;
 using erp_system.Tools;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -8,47 +9,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace erp_system.MVVM.ViewModel
 {
     public class NewDetailIdViewModel : ObservableObject
     {
-        public RelayCommand ConfirmIdCommand { get; set; }
+        public ICommand ForwardCommand { get; set; }
 
-        private int _number;
-        public string Number
+        private DetailBasic _detailBasic;
+
+        public DetailBasic DetailBasic
         {
-            get => String.Format("{0:00000000}",
-                              _number);
-            set => SetProperty(ref _number, Int32.Parse(value));
+            get => _detailBasic;
+            set => SetProperty(ref _detailBasic, value);
         }
 
-        private string _drawingNumber;
-
-        public string DrawingNumber
+        public NewDetailIdViewModel(DetailBasic detailBasic, Action<DetailBasic> onForward)
         {
-            get => _drawingNumber;
-            set => SetProperty(ref _drawingNumber, value);
-        }
+            _detailBasic = detailBasic;
+            List<int> existing = DetailsStore.Details.Find(x => x.Number >= 0).ToList().Select(z => z.Number).ToList();
 
-        private string _description;
+            DetailBasic.Number = IdGenerator.CreateId(existing).ToString();
 
-        public string Description
-        {
-            get => _description;
-            set => SetProperty(ref _description, value);
-        }
-
-        public NewDetailIdViewModel(RelayCommand confirmIdCommand)
-        {
-            //Count = Repo.ErpRepo.Details.CountDocuments("{}");
-            List<int> existing = ErpRepo.Details.Find(x => x.Number >= 0).ToList().Select(z => z.Number).ToList();
-
-            var _generator = new IdGenerator();
-            Number = _generator.CreateId(existing).ToString();
-
-            ConfirmIdCommand = confirmIdCommand;
-
+            ForwardCommand = new RelayCommand<DetailBasic>(onForward);
         }
 
     }

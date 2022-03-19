@@ -7,7 +7,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 
-namespace erp_system.Model
+namespace erp_system.MVVM.Model
 {
     public class Detail
     {
