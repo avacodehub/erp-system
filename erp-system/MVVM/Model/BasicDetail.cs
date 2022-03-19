@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace erp_system.MVVM.ViewModel
+namespace erp_system.MVVM.Model
 {
-    public class NewDetailRestViewModel : ObservableObject
+    public class BasicDetail : ObservableObject
     {
 
     }

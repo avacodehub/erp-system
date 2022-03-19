@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace erp_system.MVVM.ViewModel
+namespace erp_system.ViewModels
 {
     internal class FilterViewModel
     {

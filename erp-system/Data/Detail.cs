@@ -7,7 +7,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 
-namespace erp_system.Model
+namespace erp_system.Data
 {
     public class Detail
     {
@@ -30,10 +30,11 @@ namespace erp_system.Model
 
         [BsonElement("drawingRevision")]
         public int DrawingRevision { get; set; }
-        public Nullable<bool> IsAssembly { get; set; }
-        public Nullable<bool> IsOwn { get; set; }
+        public bool? IsAssembly { get; set; }
+        public bool? IsOwn { get; set; }
         public string[] Bom { get; set; }
 
 
     }
+    
 }

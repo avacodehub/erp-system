@@ -14,7 +14,7 @@ namespace erp_system.Repo
 
         //public static MongoClient Client { get; set; }
 
-        public static IMongoCollection<Detail> _details;
+        private static IMongoCollection<Detail> _details;
         public static IMongoCollection<Detail> Details
         {
             get
@@ -32,6 +32,11 @@ namespace erp_system.Repo
                 }
                 return _details;
             }
+        }
+
+        public static void CreateDetail(Detail detail)
+        {
+            Details.InsertOne(detail);
         }
     }
 }
