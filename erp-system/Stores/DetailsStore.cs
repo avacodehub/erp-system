@@ -7,7 +7,7 @@ namespace erp_system.Stores
 {
     public static class DetailsStore
     {
-        static string _connectionString = "mongodb+srv://cluster0.0rdkc.mongodb.net/myFirstDatabase?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority";
+        static string _connectionString = "mongodb+srv://cluster0.g7w4t.mongodb.net/myFirstDatabase?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority";
 
         static string _certPath = "C:\\X509cert.pfx";
 
@@ -19,7 +19,8 @@ namespace erp_system.Stores
                 if (_details == null)
                 {
                     var settings = MongoClientSettings.FromConnectionString(_connectionString);
-                    var cert = new X509Certificate2(_certPath, "cert343");
+                    settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+                    var cert = new X509Certificate2(_certPath, "q1w2e3");
                     settings.SslSettings = new SslSettings
                     {
                         ClientCertificates = new List<X509Certificate>() { cert }
@@ -38,4 +39,6 @@ namespace erp_system.Stores
         }
 
     }
+
+
 }
