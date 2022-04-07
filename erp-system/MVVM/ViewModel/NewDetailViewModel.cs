@@ -44,7 +44,7 @@ namespace erp_system.MVVM.ViewModel
 
         }
 
-        public void OnForward(DetailBasic detailBasic)
+        public void OnForward(DetailBasic? detailBasic)
         {
             if (detailBasic == null) return;
 
@@ -69,7 +69,7 @@ namespace erp_system.MVVM.ViewModel
             CurrentView = new NewDetailIdViewModel(DetailBasic, OnForward);
         }
 
-        public void OnSave(DetailFull detailFull)
+        public void OnSave(DetailFull? detailFull)
         {
             if (detailFull == null) return;
 
