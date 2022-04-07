@@ -33,8 +33,6 @@ namespace erp_system.MVVM.ViewModel
             set => SetProperty(ref _autoId, value);
         }
 
-        public bool NumberIsEnabled => !AutoId;
-
         public NewDetailIdViewModel(DetailBasic detailBasic, Action<DetailBasic?> onForward)
         {
             _detailBasic = detailBasic;
