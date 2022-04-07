@@ -24,13 +24,19 @@ namespace erp_system.MVVM.ViewModel
             set => SetProperty(ref _detailFull, value);
         }
 
-        public NewDetailRestViewModel(DetailFull detailFull, Action onBack, Action<DetailFull> onSave)
+        public NewDetailRestViewModel(DetailFull detailFull, Action onBack, Action<DetailFull?> onSave)
         {
             DetailFull = detailFull;
             CancelCommand = new RelayCommand(onBack);
-            CreateCommand = new RelayCommand<DetailFull>(onSave);
+            CreateCommand = new RelayCommand<DetailFull>(onSave, CreateCommandCanExecute);
         }
 
-       
+        private bool CreateCommandCanExecute(DetailFull? detailFull)
+        {
+            if (detailFull == null) return false;
+            if (String.IsNullOrEmpty(detailFull.Description)) return false;
+
+            return true;
+        }
     }
 }

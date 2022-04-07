@@ -25,14 +25,32 @@ namespace erp_system.MVVM.ViewModel
             set => SetProperty(ref _detailBasic, value);
         }
 
-        public NewDetailIdViewModel(DetailBasic detailBasic, Action<DetailBasic> onForward)
+        private bool _autoId = true;
+
+        public bool AutoId
+        {
+            get => _autoId;
+            set => SetProperty(ref _autoId, value);
+        }
+
+        public bool NumberIsEnabled => !AutoId;
+
+        public NewDetailIdViewModel(DetailBasic detailBasic, Action<DetailBasic?> onForward)
         {
             _detailBasic = detailBasic;
             List<int> existing = DetailsStore.Details.Find(x => x.Number >= 0).ToList().Select(z => z.Number).ToList();
 
             DetailBasic.Number = IdGenerator.CreateId(existing).ToString();
 
-            ForwardCommand = new RelayCommand<DetailBasic>(onForward);
+            ForwardCommand = new RelayCommand<DetailBasic>(onForward, ForwardCommandCanExecute);
+        }
+
+        private bool ForwardCommandCanExecute(DetailBasic? detailBasic)
+        {
+            if (detailBasic == null) return false;
+            if (String.IsNullOrEmpty(detailBasic.DrawingNumber)) return false;
+
+            return true;
         }
 
     }

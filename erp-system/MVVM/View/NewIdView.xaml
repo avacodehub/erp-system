@@ -14,10 +14,13 @@
                 <StackPanel>
 
                     <TextBlock Width="200" Text="Id Number" />
-                    <TextBox Margin="0,5,0,0" Text="{Binding DetailBasic.Number}" />
+                    <TextBox Margin="0,5,0,0" Text="{Binding DetailBasic.Number}"
+                             PreviewTextInput="NumberValidationTextBox" 
+                             IsEnabled="{Binding AutoId, Converter={StaticResource BooleanInvertConverter}}" />
                 </StackPanel>
-                <CheckBox Margin="10,0" VerticalAlignment="Bottom" />
-                <TextBlock VerticalAlignment="Bottom" Text="Auto ID" />
+                <CheckBox Margin="10,0" VerticalAlignment="Bottom" IsChecked="{Binding AutoId}" >
+                    <TextBlock Text="Auto ID" />
+                </CheckBox>
             </StackPanel>
             <StackPanel Margin="0,25" Orientation="Horizontal">
                 <StackPanel>
