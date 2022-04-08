@@ -1,4 +1,5 @@
 ﻿using erp_system.MVVM.Model;
+using erp_system.Stores;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -24,6 +25,16 @@ namespace erp_system.MVVM.ViewModel
             set => SetProperty(ref _detailFull, value);
         }
 
+        private string? _name;
+
+        public string? Name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
+        }
+
+        public List<string> DetailNameCatalog => DetailNamesStore.DetailNames;
+
         public NewDetailRestViewModel(DetailFull detailFull, Action onBack, Action<DetailFull?> onSave)
         {
             DetailFull = detailFull;
@@ -33,8 +44,8 @@ namespace erp_system.MVVM.ViewModel
 
         private bool CreateCommandCanExecute(DetailFull? detailFull)
         {
-            if (detailFull == null) return false;
-            if (String.IsNullOrEmpty(detailFull.Description)) return false;
+            //if (detailFull == null) return false;
+            //if (String.IsNullOrEmpty(detailFull.Description)) return false;
 
             return true;
         }

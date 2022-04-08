@@ -29,8 +29,25 @@
                 <Button Command="{Binding SearchCommand}" >Search</Button>
             </StackPanel>
         </StackPanel>
+        
         <StackPanel Grid.Row="1">
-            <ListView ItemsSource="{Binding Results}" ></ListView>
+            <ListView ItemsSource="{Binding Results}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <Grid Height="32" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="{Binding Number}" />
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Name}"/>
+                            <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Description}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
     </Grid>
 </UserControl>

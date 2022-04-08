@@ -45,8 +45,8 @@ namespace erp_system.MVVM.ViewModel
 
         private bool ForwardCommandCanExecute(DetailBasic? detailBasic)
         {
-            if (detailBasic == null) return false;
-            if (String.IsNullOrEmpty(detailBasic.DrawingNumber)) return false;
+            //if (detailBasic == null) return false;
+            //if (String.IsNullOrEmpty(detailBasic.DrawingNumber)) return false;
 
             return true;
         }

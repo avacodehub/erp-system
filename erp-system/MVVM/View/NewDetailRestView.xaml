@@ -13,7 +13,7 @@
             <RowDefinition Height="300" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-        <StackPanel>
+        <StackPanel HorizontalAlignment="Left">
 
             <TextBlock Text="New Detail Rest" />
             <TextBlock Width="200" Text="Number" />
@@ -22,8 +22,20 @@
             <TextBox Text="{Binding DetailFull.Description}" />
             <TextBlock Width="200" Text="DrawingNumber" />
             <TextBox Text="{Binding DetailFull.DrawingNumber}" />
+            
+            
             <TextBlock Width="200" Text="Name" />
             <TextBox Text="{Binding DetailFull.Name}" />
+            <ComboBox ItemsSource="{Binding DetailNameCatalog}" SelectedValue="{Binding Name}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding .}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
             <TextBlock Width="200" Text="Revision" />
             <TextBox Text="{Binding DetailFull.Revision}" />
         </StackPanel>
