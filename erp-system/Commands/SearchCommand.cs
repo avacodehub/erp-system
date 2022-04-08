@@ -24,8 +24,7 @@ namespace erp_system.Commands
 
         public override void Execute(object? parameter)
         {
-            //var res = DetailsStore.Details.Find(x => x.Name.Contains(_viewModel.Name)).ToList();
-            var res = DetailsStore.Details.Find(x => true).ToList();
+            var res = DetailsStore.Details.Find(x => x.Name.Contains(_viewModel.Name)).ToList();
             _viewModel.Results = res;
         }
 

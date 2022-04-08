@@ -6,22 +6,23 @@
         xmlns:local="clr-namespace:erp_system"
         xmlns:viewModel="clr-namespace:erp_system.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1100">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions >
-            <RowDefinition Height="50" />
-            <RowDefinition Height="800" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-
         <StackPanel Orientation="Horizontal" >
-            <Button Content="Id Number"  Width="100" Height="50" Background="#FF41E81D" Command="{Binding NewDetailCommand}" />
-            <Button Grid.Column="1" Width="100" Height="50" Background="#FFD7E219" Content="Search" Command="{Binding FilterCommand}">
+            <Button Content="CREATE"  Width="100"  Background="#FF92FF7A" Command="{Binding NewDetailCommand}" />
+            <Button Grid.Column="1" Width="100"  Background="#FFF8FF83" Content="SEARCH" Command="{Binding FilterCommand}">
             </Button>
         </StackPanel>
-        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+        <Border Grid.Row="1" Padding="12">
+            <ContentControl Content="{Binding CurrentView}"/>
+        </Border>
     </Grid>
 </Window>
