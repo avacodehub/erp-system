@@ -31,6 +31,10 @@
             </DataTemplate>
 
             <converters:BooleanInvertConverter x:Key="BooleanInvertConverter"/>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
     </Application.Resources>
