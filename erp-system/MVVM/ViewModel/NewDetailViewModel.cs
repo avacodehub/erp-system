@@ -77,6 +77,27 @@ namespace erp_system.MVVM.ViewModel
             Detail.Name = detailFull.Name;
             var filter = Builders<Detail>.Filter.Eq(s => s.Id, Detail.Id);
             DetailsStore.Details.ReplaceOne(filter, Detail);
+
+            CurrentView = new ViewDetailViewModel(DetailFull, OnCreateNew, OnEdit);
         }
+
+
+        // VIEWDETAIL COMMANDS
+        public void OnCreateNew()
+        {
+            Detail = new Detail();
+            DetailBasic = new DetailBasic();
+            DetailFull = new DetailFull();
+            CurrentView = new NewDetailIdViewModel(DetailBasic, OnForward);
+        }
+
+        public void OnEdit(DetailFull? detailFull)
+        {
+            if (detailFull == null) return;
+
+            DetailFull = detailFull;
+            CurrentView = new NewDetailRestViewModel(DetailFull, OnBack, OnSave);
+        }
+
     }
 }
