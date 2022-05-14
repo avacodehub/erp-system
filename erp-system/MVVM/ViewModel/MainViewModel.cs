@@ -7,8 +7,11 @@ namespace erp_system.MVVM.ViewModel
     internal class MainViewModel : ObservableObject
     {
 
+        public RelayCommand HomeCommand { get; set; }
         public RelayCommand NewDetailCommand { get; set; }
         public RelayCommand FilterCommand { get; set; }
+
+        public HomeViewModel HomeVM { get; set; } = new HomeViewModel();
 
         public NewDetailViewModel NewDetailVM { get; set; }
         public FilterViewModel FilterVM { get; set; }
@@ -27,7 +30,12 @@ namespace erp_system.MVVM.ViewModel
 
             FilterVM = new FilterViewModel();
 
-            CurrentView = NewDetailVM;
+            CurrentView = HomeVM;
+
+            HomeCommand = new RelayCommand(() =>
+            {
+                CurrentView = HomeVM;
+            });
 
             NewDetailCommand = new RelayCommand(() =>
             {
