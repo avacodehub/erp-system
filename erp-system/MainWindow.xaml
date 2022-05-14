@@ -6,23 +6,36 @@
         xmlns:local="clr-namespace:erp_system"
         xmlns:viewModel="clr-namespace:erp_system.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1100">
+        Height="700" Width="1100"
+        WindowStyle="ThreeDBorderWindow">
+
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    <Grid>
-        <Grid.RowDefinitions >
-            <RowDefinition Height="32" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" >
-            <Button Content="CREATE"  Width="100"  Background="#FF92FF7A" Command="{Binding NewDetailCommand}" />
-            <Button Grid.Column="1" Width="100"  Background="#FFF8FF83" Content="SEARCH" Command="{Binding FilterCommand}">
-            </Button>
-        </StackPanel>
-        <Border Grid.Row="1" Padding="12">
-            <ContentControl Content="{Binding CurrentView}"/>
-        </Border>
-    </Grid>
+    <Border CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="32" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Background="#272537">
+                <StackPanel Orientation="Horizontal" >
+                    <RadioButton Content="Create" 
+                                 Style="{StaticResource MenuButtonTheme}" 
+                                 Width="100" 
+                                 Command="{Binding NewDetailCommand}"/>
+                    <RadioButton Content="Search" 
+                                 Style="{StaticResource MenuButtonTheme}" 
+                                 Width="100" 
+                                 Command="{Binding FilterCommand}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1" Padding="12">
+                <ContentControl Content="{Binding CurrentView}"/>
+            </Border>
+        </Grid>
+    </Border>
 </Window>
